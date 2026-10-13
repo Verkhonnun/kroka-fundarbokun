@@ -39,7 +39,7 @@ const App = () => (
       <AuthProvider>
         <TooltipProvider>
           <Toaster />
-          <BrowserRouter>
+          <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, "")}>
             <Routes>
               <Route path="/" element={<RequireApproved><Index /></RequireApproved>} />
               <Route path="/profile" element={<RequireApproved><Profile /></RequireApproved>} />

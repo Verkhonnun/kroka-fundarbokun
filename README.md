@@ -51,3 +51,16 @@ npm run build          # tsc + vite build
 - Samþykktir notendur sjá nöfn og myndir annarra (nauðsynlegt til að sýna hver á bókun).
 - `send-approval-email` og `notify-registration` taka ekki lengur við netfangi úr beiðni sem hver sem er gat sent.
 - Bókanir geta verið allt að 12 klst. og með valfrjálsri athugasemd.
+
+## Hýsing á GitHub Pages
+
+`.github/workflows/deploy.yml` byggir og birtir vefinn við hvern push á `main`.
+
+1. Repo → Settings → Pages → Source: **GitHub Actions**.
+2. (Valfrjálst) Eigið lén: bættu við CNAME hjá DNS-þjónustunni og settu lénið í Settings → Pages → Custom domain.
+   Án léns er slóðin `https://verkhonnun.github.io/kroka-fundarbokun/` – þá þarf repo-breytan `PAGES_BASE` = `/kroka-fundarbokun/`
+   (Settings → Secrets and variables → Actions → Variables).
+3. Settu slóð vefsins í Supabase → Authentication → URL Configuration (Site URL og Redirect URLs) og í `APP_URL` leyndarmálið.
+
+Athugið: GitHub Pages úr **private** repo krefst GitHub Pro/Team/Enterprise. Annars þarf að gera repo-ið public
+(engin leyndarmál eru í kóðanum – `.env` er ekki í git og publishable lykillinn er hannaður til að vera opinber).
