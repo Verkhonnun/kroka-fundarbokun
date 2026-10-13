@@ -1,0 +1,19 @@
+# Setjið project_id eftir að Supabase-verkefnið hefur verið stofnað
+project_id = "REPLACE_WITH_PROJECT_REF"
+
+[functions.create-user]
+verify_jwt = true
+
+[functions.delete-user]
+verify_jwt = true
+
+[functions.send-password-reset]
+verify_jwt = true
+
+[functions.send-approval-email]
+verify_jwt = true
+
+# Kallað beint eftir nýskráningu, áður en notandi hefur gilda innskráningu.
+# Sjá athugasemdir í index.ts um hvernig misnotkun er takmörkuð.
+[functions.notify-registration]
+verify_jwt = false

@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 14% 97%;
+    --foreground: 0 0% 8%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 8%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 8%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 40 10% 93%;
+    --secondary-foreground: 0 0% 12%;
+    --muted: 40 10% 94%;
+    --muted-foreground: 0 0% 40%;
+    --accent: 40 10% 92%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 72% 46%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 40 8% 86%;
+    --input: 40 8% 84%;
+    --ring: 0 0% 9%;
+    --radius: 0.625rem;
+
+    /* Króka-gulur: notaður sparlega (núverandi tími, valið svæði, áhersla) */
+    --brand: 48 100% 52%;
+    --brand-foreground: 0 0% 8%;
+    --success: 152 55% 36%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-background font-sans text-foreground antialiased;
+    font-feature-settings: "cv11", "ss01";
+  }
+
+  /* Forðast zoom á iOS þegar reitur fær fókus */
+  @media (max-width: 640px) {
+    input, select, textarea {
+      font-size: 16px !important;
+    }
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--border)) transparent;
+  }
+  .touch-pan-y-only {
+    touch-action: pan-y;
+  }
+}
