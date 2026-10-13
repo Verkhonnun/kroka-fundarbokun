@@ -57,9 +57,9 @@ npm run build          # tsc + vite build
 `.github/workflows/deploy.yml` byggir og birtir vefinn við hvern push á `main`.
 
 1. Repo → Settings → Pages → Source: **GitHub Actions**.
-2. (Valfrjálst) Eigið lén: bættu við CNAME hjá DNS-þjónustunni og settu lénið í Settings → Pages → Custom domain.
-   Án léns er slóðin `https://verkhonnun.github.io/kroka-fundarbokun/` – þá þarf repo-breytan `PAGES_BASE` = `/kroka-fundarbokun/`
-   (Settings → Secrets and variables → Actions → Variables).
+2. Sjálfgefin slóð er `https://verkhonnun.github.io/kroka-fundarbokun/`.
+   Með eigin léni: bættu við CNAME hjá DNS-þjónustunni, settu lénið í Settings → Pages → Custom domain og búðu til
+   repo-breytuna `PAGES_BASE` = `/` (Settings → Secrets and variables → Actions → Variables).
 3. Settu slóð vefsins í Supabase → Authentication → URL Configuration (Site URL og Redirect URLs) og í `APP_URL` leyndarmálið.
 
 Athugið: GitHub Pages úr **private** repo krefst GitHub Pro/Team/Enterprise. Annars þarf að gera repo-ið public
