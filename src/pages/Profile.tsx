@@ -58,7 +58,9 @@ const Profile = () => {
 
   const saveProfile = async () => {
     if (!user) return;
-    if (choice === "system" && takenIds.includes(systemId)) return toast.error(t.profile.avatarTaken);
+    // Aðeins athugað ef notandi breytti um mynd (eldri notendur geta átt sömu sjálfgefnu myndina)
+    const avatarChanged = choice !== profile?.avatar_choice || systemId !== profile?.system_avatar_id;
+    if (choice === "system" && avatarChanged && takenIds.includes(systemId)) return toast.error(t.profile.avatarTaken);
     setSaving(true);
     const { error } = await supabase
       .from("profiles")
