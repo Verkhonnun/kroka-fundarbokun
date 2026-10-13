@@ -1,5 +1,5 @@
 # Setjið project_id eftir að Supabase-verkefnið hefur verið stofnað
-project_id = "REPLACE_WITH_PROJECT_REF"
+project_id = "ipuajkxmbablqfyaaqrl"
 
 [functions.create-user]
 verify_jwt = true
