@@ -54,13 +54,13 @@ npm run build          # tsc + vite build
 
 ## Hýsing á GitHub Pages
 
-`.github/workflows/deploy.yml` byggir og birtir vefinn við hvern push á `main`.
+`.github/workflows/deploy.yml` byggir og birtir vefinn við hvern push á `main`. Vefurinn er á **https://kroka.verkhonnun.is**.
 
-1. Repo → Settings → Pages → Source: **GitHub Actions**.
-2. Sjálfgefin slóð er `https://verkhonnun.github.io/kroka-fundarbokun/`.
-   Með eigin léni: bættu við CNAME hjá DNS-þjónustunni, settu lénið í Settings → Pages → Custom domain og búðu til
-   repo-breytuna `PAGES_BASE` = `/` (Settings → Secrets and variables → Actions → Variables).
-3. Settu slóð vefsins í Supabase → Authentication → URL Configuration (Site URL og Redirect URLs) og í `APP_URL` leyndarmálið.
+- **DNS (Cloudflare):** `kroka` CNAME → `verkhonnun.github.io`, *DNS only* (grár skýjahnappur).
+- **GitHub:** Settings → Pages → Source: GitHub Actions, Custom domain: `kroka.verkhonnun.is`, Enforce HTTPS.
+- **Supabase:** Site URL og Redirect URLs (`https://kroka.verkhonnun.is/**`) í Authentication → URL Configuration,
+  og `APP_URL` í Edge Functions → Secrets.
+- Án eigin léns er slóðin `https://verkhonnun.github.io/kroka-fundarbokun/` – þá þarf repo-breytuna `PAGES_BASE` = `/kroka-fundarbokun/`.
 
-Athugið: GitHub Pages úr **private** repo krefst GitHub Pro/Team/Enterprise. Annars þarf að gera repo-ið public
-(engin leyndarmál eru í kóðanum – `.env` er ekki í git og publishable lykillinn er hannaður til að vera opinber).
+GitHub Pages úr **private** repo krefst GitHub Pro/Team/Enterprise, því repo-ið er public. Engin leyndarmál eru í kóðanum –
+`.env` er ekki í git og publishable lykillinn er hannaður til að vera opinber.
